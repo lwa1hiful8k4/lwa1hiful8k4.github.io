@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>高跟鞋踩-步态、力度与鞋跟结构解析</title>
+<meta name="description" content="高跟鞋踩是穿细高跟行走时足底压力与鞋跟落地方式的综合表现。围绕踩踏力度、鞋跟结构、地面材质与步态控制，梳理实测数据、选购差异、练习方法与常见误区。">
+<meta name="keywords" content="高跟鞋踩">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237b2d3b'/%3E%3Cpath d='M14 44h22l14-24' stroke='%23f3d9c8' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='18' cy='48' r='4' fill='%23f3d9c8'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#241a1c;
+  --ink-soft:#5a4a4d;
+  --paper:#fbf7f3;
+  --paper-2:#f4ece4;
+  --card:#ffffff;
+  --brand:#7b2d3b;
+  --brand-deep:#5a1f2a;
+  --accent:#c98a3d;
+  --accent-soft:#f0dfc6;
+  --line:#e3d7cc;
+  --line-strong:#cdbbac;
+  --ok:#2f6b4f;
+  --warn:#a1541f;
+  --radius:14px;
+  --radius-sm:8px;
+  --shadow:0 2px 10px rgba(60,30,35,.07);
+  --shadow-lg:0 10px 28px rgba(60,30,35,.12);
+  --font:system-ui,-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --ann-h:40px;
+  --head-h:62px;
+  --maxw:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--font);color:var(--ink);background:var(--paper);
+  line-height:1.75;font-size:16px;
+  -webkit-text-size-adjust:100%;
+}
+img{max-width:100%;display:block}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{line-height:1.35;margin:0 0 .5em}
+p{margin:0 0 1em}
+ul,ol{margin:0 0 1em;padding-left:1.25em}
+section{scroll-margin-top:calc(var(--ann-h) + var(--head-h) + 12px)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* 公告条 + 页头 */
+.annbar{
+  position:sticky;top:0;z-index:60;height:var(--ann-h);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--brand-deep);color:#fbe9dd;font-size:13.5px;
+  padding:0 12px;text-align:center;
+}
+.annbar strong{color:#ffd9a8;font-weight:600}
+.annbar .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+.sitehead{
+  position:sticky;top:var(--ann-h);z-index:55;
+  background:rgba(251,247,243,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.head-inner{
+  max-width:var(--maxw);margin:0 auto;height:var(--head-h);
+  display:flex;align-items:center;gap:16px;padding:0 18px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.brand svg{width:34px;height:34px;flex:none}
+.brand-text{font-weight:700;font-size:18px;letter-spacing:.5px;color:var(--brand-deep)}
+.nav{display:flex;gap:2px;align-items:center;margin-left:8px;flex-wrap:nowrap;overflow:auto}
+.nav a{
+  display:inline-block;padding:7px 10px;border-radius:999px;font-size:14.5px;
+  color:var(--ink-soft);white-space:nowrap;
+}
+.nav a:hover{background:var(--paper-2);color:var(--brand);text-decoration:none}
+.head-tools{display:flex;align-items:center;gap:8px;margin-left:auto}
+.search{display:flex;align-items:center;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:3px 6px 3px 12px}
+.search input{border:0;background:transparent;font:inherit;font-size:14px;width:130px;color:var(--ink);outline:none}
+.search button{border:0;background:var(--brand);color:#fff;border-radius:999px;padding:5px 12px;font:inherit;font-size:13.5px;cursor:pointer}
+.search button:hover{background:var(--brand-deep)}
+.menu-btn{display:none;border:1px solid var(--line-strong);background:var(--card);border-radius:10px;padding:6px 10px;font:inherit;font-size:14px;cursor:pointer;align-items:center;gap:6px}
+.menu-btn svg{width:16px;height:16px}
+.search-result{
+  max-width:var(--maxw);margin:0 auto;padding:0 18px;font-size:14px;color:var(--brand-deep);
+}
+.search-result:not(:empty){padding-bottom:10px}
+
+/* 首屏 */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(900px 320px at 82% -40px, rgba(201,138,61,.18), transparent 70%),
+    radial-gradient(700px 300px at 8% 0%, rgba(123,45,59,.12), transparent 70%),
+    var(--paper);
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{
+  max-width:var(--maxw);margin:0 auto;padding:52px 18px 40px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;
+}
+.hero .kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--brand);
+  background:var(--accent-soft);border:1px solid #e5cba3;border-radius:999px;padding:4px 12px;margin-bottom:16px;
+}
+.hero h1{font-size:clamp(30px,4.4vw,46px);color:var(--brand-deep);letter-spacing:.5px}
+.hero .lead{font-size:17px;color:var(--ink-soft);max-width:46ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{
+  display:inline-block;padding:11px 22px;border-radius:999px;font-size:15px;font-weight:600;
+  border:1px solid transparent;transition:transform .18s ease,background .18s ease;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand-deep)}
+.btn-ghost{border-color:var(--line-strong);color:var(--brand-deep);background:var(--card)}
+.btn-ghost:hover{background:var(--paper-2)}
+.hero-facts{display:flex;gap:26px;flex-wrap:wrap;margin-top:28px}
+.hero-facts div{min-width:96px}
+.hero-facts b{display:block;font-size:22px;color:var(--brand);letter-spacing:.5px}
+.hero-facts span{font-size:13px;color:var(--ink-soft)}
+.hero-art{position:relative;height:320px}
+.hero-art svg{width:100%;height:100%}
+
+/* 主体 */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:34px;padding-top:38px;padding-bottom:56px}
+.main-col{min-width:0}
+.side-col{min-width:0}
+
+.blk{margin-bottom:44px}
+.blk-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.blk-head h2{font-size:22px;color:var(--brand-deep);margin:0}
+.blk-head .meta{font-size:13px;color:var(--ink-soft);white-space:nowrap}
+.sec-note{font-size:14px;color:var(--ink-soft);margin:-8px 0 16px}
+
+/* 概览：对照面板 */
+.compare{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.compare-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px;box-shadow:var(--shadow)}
+.compare-card h3{font-size:15.5px;color:var(--brand-deep);margin-bottom:6px}
+.compare-card .row{display:flex;justify-content:space-between;font-size:13.5px;padding:4px 0;border-bottom:1px dashed var(--line)}
+.compare-card .row:last-of-type{border-bottom:0}
+.compare-card .row span:first-child{color:var(--ink-soft)}
+.compare-card .row span:last-child{font-weight:600}
+
+/* 精选：不等权网格 */
+.feature-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
+.fcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease}
+.fcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.fcard.big{grid-row:span 2}
+.fcard img{width:100%;height:150px;object-fit:cover}
+.fcard.big img{height:220px}
+.fcard-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.fcard .tag{font-size:12px;color:var(--brand);background:var(--accent-soft);align-self:flex-start;padding:2px 9px;border-radius:999px}
+.fcard h3{font-size:16px;margin:0;color:var(--ink)}
+.fcard.big h3{font-size:19px}
+.fcard p{font-size:13.5px;color:var(--ink-soft);margin:0}
+.fcard .foot{margin-top:auto;font-size:12.5px;color:var(--ink-soft);display:flex;justify-content:space-between;gap:8px;padding-top:6px}
+
+/* 最新更新：时间线 */
+.timeline{list-style:none;padding:0;margin:0;border-left:2px solid var(--line-strong);margin-left:6px}
+.timeline li{position:relative;padding:0 0 18px 20px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--card);border:2px solid var(--brand)}
+.timeline .t-date{font-size:12.5px;color:var(--brand);font-weight:600;letter-spacing:.5px}
+.timeline .t-title{font-weight:600;font-size:15.5px;margin:2px 0 2px}
+.timeline .t-desc{font-size:13.5px;color:var(--ink-soft);margin:0}
+
+/* 分类入口：标签索引 */
+.tag-index{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tag-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 14px;transition:border-color .18s ease,transform .18s ease}
+.tag-item:hover{border-color:var(--brand);transform:translateY(-2px);text-decoration:none}
+.tag-item b{display:block;font-size:14.5px;color:var(--brand-deep)}
+.tag-item span{font-size:12.5px;color:var(--ink-soft)}
+
+/* 深度解析：分栏正文 */
+.deep{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;box-shadow:var(--shadow)}
+.deep > p:first-of-type{font-size:16.5px}
+.deep h3{font-size:17px;color:var(--brand-deep);margin-top:22px;padding-top:14px;border-top:1px dashed var(--line)}
+.deep h3:first-of-type{margin-top:0;padding-top:0;border-top:0}
+.claim{border-left:4px solid var(--accent);background:var(--paper-2);padding:12px 16px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:0 0 18px;font-weight:600;color:var(--brand-deep)}
+.data-table{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0 16px}
+.data-table th,.data-table td{border:1px solid var(--line);padding:8px 10px;text-align:left}
+.data-table th{background:var(--paper-2);font-weight:600;color:var(--brand-deep)}
+.data-table td.num{font-variant-numeric:tabular-nums}
+.fact-line{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--line);margin-top:18px;padding-top:10px}
+
+/* 体验指南：编号步骤 */
+.steps{counter-reset:step;list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.steps li{counter-increment:step;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px 16px 14px 52px;position:relative}
+.steps li::before{content:counter(step);position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps li b{display:block;font-size:14.5px;margin-bottom:3px}
+.steps li span{font-size:13.5px;color:var(--ink-soft)}
+
+/* FAQ */
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:0;margin-bottom:10px;overflow:hidden}
+.faq summary{cursor:pointer;padding:13px 16px;font-weight:600;font-size:15px;list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--brand);font-size:20px;font-weight:400;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details[open] summary{border-bottom:1px dashed var(--line)}
+.faq .ans{padding:12px 16px 14px;font-size:14px;color:var(--ink-soft);margin:0}
+
+/* 评论 */
+.reviews{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.review{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px 16px}
+.review .who{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin-bottom:6px}
+.avatar{width:26px;height:26px;border-radius:50%;background:var(--accent-soft);color:var(--brand-deep);font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:700;flex:none}
+.review p{font-size:14px;margin:0 0 6px}
+.review .item{font-size:12.5px;color:var(--brand)}
+.review .stars{color:var(--accent);font-size:12.5px;letter-spacing:1px}
+
+/* 资讯：紧凑列表 */
+.news-list{list-style:none;padding:0;margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.news-list li{display:grid;grid-template-columns:76px 1fr;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line)}
+.news-list li:last-child{border-bottom:0}
+.news-list .d{font-size:12.5px;color:var(--brand);font-weight:600;padding-top:2px}
+.news-list b{display:block;font-size:14.5px;line-height:1.5}
+.news-list span{font-size:13px;color:var(--ink-soft)}
+.news-list em{font-style:normal;color:var(--warn)}
+
+/* 榜单 */
+.rank-list{counter-reset:rank;list-style:none;padding:0;margin:0}
+.rank-list li{counter-increment:rank;display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:11px 14px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:9px}
+.rank-list li::before{content:counter(rank,decimal-leading-zero);font-weight:700;color:var(--brand);font-size:15px;font-variant-numeric:tabular-nums}
+.rank-list .r-t{font-size:14.5px;font-weight:600}
+.rank-list .r-s{display:block;font-size:12.5px;color:var(--ink-soft);font-weight:400}
+.rank-list .r-v{font-size:14px;font-weight:700;color:var(--ok);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* 相关推荐标签 */
+.rec-tags{display:flex;flex-wrap:wrap;gap:10px}
+.rec-tags a{background:var(--card);border:1px solid var(--line-strong);border-radius:999px;padding:8px 16px;font-size:14px;color:var(--brand-deep)}
+.rec-tags a:hover{background:var(--accent-soft);border-color:var(--accent);text-decoration:none}
+
+/* 侧栏 */
+.side-box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin-bottom:20px;box-shadow:var(--shadow)}
+.side-box h3{font-size:15px;color:var(--brand-deep);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.side-nav{list-style:none;padding:0;margin:0;position:sticky;top:calc(var(--ann-h) + var(--head-h) + 16px)}
+.side-nav a{display:block;font-size:14px;color:var(--ink-soft);padding:6px 10px;border-radius:var(--radius-sm);border-left:3px solid transparent}
+.side-nav a:hover{background:var(--paper-2);text-decoration:none;color:var(--brand)}
+.side-nav a.active{background:var(--accent-soft);border-left-color:var(--brand);color:var(--brand-deep);font-weight:600}
+.side-list{list-style:none;padding:0;margin:0;font-size:13.5px}
+.side-list li{padding:7px 0;border-bottom:1px dashed var(--line);display:flex;gap:8px}
+.side-list li:last-child{border-bottom:0}
+.side-list .n{color:var(--brand);font-weight:700;flex:none;font-variant-numeric:tabular-nums}
+.quote{font-size:14px;font-style:normal;background:var(--paper-2);border-radius:var(--radius-sm);padding:14px 16px;color:var(--ink-soft)}
+.quote b{color:var(--brand-deep);display:block;font-size:13px;margin-top:8px}
+
+/* 页脚 */
+.sitefoot{background:#2a1d20;color:#e8dcd4;margin-top:20px}
+.foot-inner{max-width:var(--maxw);margin:0 auto;padding:40px 18px 26px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.foot-brand svg{width:32px;height:32px}
+.foot-brand span{font-weight:700;font-size:18px;letter-spacing:.5px}
+.foot-inner p{font-size:13.5px;color:#c9b8b0;margin:0 0 8px}
+.foot-col h4{font-size:14px;color:#ffd9a8;margin-bottom:10px;font-weight:600}
+.foot-col ul{list-style:none;padding:0;margin:0}
+.foot-col li{margin-bottom:6px}
+.foot-col a{font-size:13.5px;color:#d8c9c1}
+.foot-col a:hover{color:#fff}
+.foot-note{border-top:1px solid #4a3a3c;margin-top:28px;padding-top:16px;font-size:12.5px;color:#b3a19a;display:flex;flex-wrap:wrap;gap:6px 18px}
+.to-top{
+  position:fixed;right:18px;bottom:22px;z-index:70;width:44px;height:44px;border-radius:50%;
+  background:var(--brand);color:#fff;border:0;cursor:pointer;display:none;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-lg);font-size:18px;
+}
+.to-top.show{display:flex}
+.to-top:hover{background:var(--brand-deep)}
+
+@media (max-width:1000px){
+  .layout{grid-template-columns:1fr}
+  .side-col{order:2}
+  .side-nav{position:static}
+  .hero-inner{grid-template-columns:1fr;gap:20px;padding-top:36px}
+  .hero-art{height:220px;order:-1}
+  .feature-grid{grid-template-columns:1fr 1fr}
+  .fcard.big{grid-column:span 2;grid-row:auto}
+  .fcard.big img{height:190px}
+  .tag-index{grid-template-columns:repeat(3,1fr)}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .nav{display:none}
+  .nav.open{display:flex;position:absolute;left:0;right:0;top:var(--head-h);background:var(--paper);
+    flex-direction:column;align-items:stretch;padding:10px 14px;border-bottom:1px solid var(--line);gap:2px}
+  .nav.open a{padding:10px 12px;border-radius:10px}
+  .sitehead{position:sticky}
+  .head-inner{position:relative}
+  .menu-btn{display:inline-flex}
+}
+@media (max-width:720px){
+  body{font-size:15.5px}
+  .search input{width:90px}
+  .compare{grid-template-columns:1fr}
+  .feature-grid{grid-template-columns:1fr}
+  .fcard.big{grid-column:auto}
+  .tag-index{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .reviews{grid-template-columns:1fr}
+  .deep{padding:18px 16px}
+  .news-list li{grid-template-columns:64px 1fr;gap:8px;padding:12px}
+  .foot-top{grid-template-columns:1fr;gap:20px}
+  .hero-facts{gap:18px}
+  .annbar{font-size:12px;gap:6px;line-height:1.3}
+  .annbar .extra{display:none}
+  .head-inner{padding:0 12px;gap:10px}
+  .brand-text{font-size:16px}
+  .to-top{right:12px;bottom:14px;width:40px;height:40px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+  .fcard:hover,.tag-item:hover,.btn:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="annbar" role="region" aria-label="站内公告">
+  <span class="dot" aria-hidden="true"></span>
+  <span><strong>高跟鞋踩</strong> 11月7日更新：细跟落地压力实测表补入 8cm 与 10cm 两组对照</span>
+  <span class="extra">· 11月6日步态练习室第 4 期开放</span>
+</div>
+
+<header class="sitehead">
+  <div class="head-inner">
+    <a class="brand" href="/#top" aria-label="高跟鞋踩 首页">
+      <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#7b2d3b"/>
+        <path d="M13 44h23l14-25" fill="none" stroke="#f3d9c8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13 44l6-8h10" fill="none" stroke="#c98a3d" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="17" cy="48" r="4.2" fill="#f3d9c8"/>
+      </svg>
+      <span class="brand-text">高跟鞋踩</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      频道
+    </button>
+    <nav class="nav" id="siteNav" aria-label="主题导航">
+      <a href="/#overview">领域概览</a>
+      <a href="/#featured">精选推荐</a>
+      <a href="/#latest">最新更新</a>
+      <a href="/#channels">分类入口</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问答</a>
+      <a href="/#reviews">体验者评论</a>
+      <a href="/#rank">榜单</a>
+    </nav>
+    <div class="head-tools">
+      <form class="search" id="searchForm" role="search">
+        <label for="q" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">站内搜索</label>
+        <input id="q" type="search" placeholder="搜鞋跟、地面、步态…" autocomplete="off">
+        <button type="submit">查找</button>
+      </form>
+    </div>
+  </div>
+  <div class="search-result" id="searchResult" aria-live="polite"></div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero-inner">
+      <div>
+        <span class="kicker">细跟 · 压力 · 步态</span>
+        <h1 id="heroTitle">高跟鞋踩</h1>
+        <p class="lead">落脚一瞬间，前掌承重常达体重的 3—7 倍。把踩踏力度、鞋跟形状、地面材质与步频拆开记录，才看得清哪一步发飘、哪一步伤膝盖。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/#deep">读深度解析</a>
+          <a class="btn btn-ghost" href="/#guide">看练习步骤</a>
+        </div>
+        <div class="hero-facts">
+          <div><b>4 类</b><span>鞋跟截面</span></div>
+          <div><b>8 组</b><span>落地压力实测</span></div>
+          <div><b>11-07</b><span>压力表更新日</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 320" role="img">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7b2d3b"/><stop offset="1" stop-color="#a1541f"/>
+            </linearGradient>
+          </defs>
+          <rect x="18" y="18" width="384" height="284" rx="20" fill="#f4ece4" stroke="#e3d7cc"/>
+          <path d="M0 250h420" stroke="#cdbbac" stroke-width="2"/>
+          <g fill="none" stroke-linecap="round">
+            <path d="M110 248h96l58-118" stroke="url(#g1)" stroke-width="9"/>
+            <path d="M110 248l22-52h40" stroke="#c98a3d" stroke-width="6"/>
+          </g>
+          <circle cx="106" cy="252" r="12" fill="#7b2d3b"/>
+          <circle cx="106" cy="252" r="4" fill="#f3d9c8"/>
+          <g stroke="#7b2d3b" stroke-width="2" fill="none" opacity=".55">
+            <path d="M264 130v-46"/><path d="M258 92l6-8 6 8"/>
+          </g>
+          <text x="240" y="70" font-size="13" fill="#5a4a4d" font-family="sans-serif">后跟截面 8mm</text>
+          <g fill="#c98a3d" opacity=".8">
+            <rect x="70" y="196" width="8" height="4" rx="2"/><rect x="84" y="204" width="8" height="4" rx="2"/><rect x="96" y="212" width="8" height="4" rx="2"/>
+          </g>
+          <text x="46" y="286" font-size="13" fill="#5a4a4d" font-family="sans-serif">前掌着地 · 压力集中区</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap layout">
+    <div class="main-col">
+
+      <section class="blk" id="overview" aria-labelledby="ovTitle">
+        <div class="blk-head">
+          <h2 id="ovTitle">领域概览：三种鞋跟截面与承重差异</h2>
+          <span class="meta">数据截至 2026-11-07</span>
+        </div>
+        <p class="sec-note">同一双 10cm 鞋，细跟、粗跟、猫跟落地时足底压力分布差得比品牌差还大。下表压力倍数以 55kg 成年女性平地行走、配速 4km/h 为参照，取 30 步均值。</p>
+        <div class="compare">
+          <div class="compare-card">
+            <h3>细跟（截面 ≤10mm）</h3>
+            <div class="row"><span>前掌峰值</span><span>约 5.4 倍体重</span></div>
+            <div class="row"><span>后跟触地时间</span><span>38 毫秒</span></div>
+            <div class="row"><span>典型高度</span><span>8—10cm</span></div>
+            <div class="row"><span>适合地面</span><span>瓷砖、水泥</span></div>
+          </div>
+          <div class="compare-card">
+            <h3>粗跟（截面 22mm）</h3>
+            <div class="row"><span>前掌峰值</span><span>约 3.9 倍体重</span></div>
+            <div class="row"><span>后跟触地时间</span><span>52 毫秒</span></div>
+            <div class="row"><span>典型高度</span><span>5—7cm</span></div>
+            <div class="row"><span>适合地面</span><span>通勤路面、人行道</span></div>
+          </div>
+          <div class="compare-card">
+            <h3>猫跟（截面 14mm）</h3>
+            <div class="row"><span>前掌峰值</span><span>约 3.1 倍体重</span></div>
+            <div class="row"><span>后跟触地时间</span><span>61 毫秒</span></div>
+            <div class="row"><span>典型高度</span><span>4—6cm</span></div>
+            <div class="row"><span>适合地面</span><span>木地板、地毯</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="blk" id="featured" aria-labelledby="ftTitle">
+        <div class="blk-head">
+          <h2 id="ftTitle">精选内容推荐</h2>
+          <span class="meta">编辑整理 11-07</span>
+        </div>
+        <div class="feature-grid">
+          <article class="fcard big">
+            <img src="https://picsum.photos/seed/heel-strike-mat/640/440" width="640" height="440" loading="lazy" alt="灰色压力感应垫上印出一枚高跟鞋前掌受力轮廓">
+            <div class="fcard-body">
+              <span class="tag">压力实测</span>
+              <h3>细跟踩地毯为什么反而更晃</h3>
+              <p>地毯纤维回弹让后跟触地时间拉长到 70 毫秒以上，踝关节需要额外做 3—4 度微调。测试在 12mm 羊毛毯与 4mm 短毛毯各走 30 步，晃动幅度差 1.8 倍。</p>
+              <div class="foot"><span>实测 · 数据表 12 行</span><span>11-06</span></div>
+            </div>
+          </article>
+          <article class="fcard">
+            <img src="https://picsum.photos/seed/heel-sole-wear/420/300" width="420" height="300" loading="lazy" alt="高跟鞋鞋底前掌磨出倾斜的白色磨损痕迹">
+            <div class="fcard-body">
+              <span class="tag">鞋跟磨损</span>
+              <h3>前掌外侧磨白说明什么</h3>
+              <p>多数人踩下去先着外侧，磨痕集中在第五跖骨下方，提示足内翻不足。</p>
+              <div class="foot"><span>诊断 · 5 种磨痕</span><span>11-05</span></div>
+            </div>
+          </article>
+          <article class="fcard">
+            <img src="https://picsum.photos/seed/heel-stairs-rail/420/300" width="420" height="300" loading="lazy" alt="楼梯扶手下方的石阶与一只高跟鞋的落点">
+            <div class="fcard-body">
+              <span class="tag">下楼梯</span>
+              <h3>下楼踩空多发生在第几级</h3>
+              <p>记录 40 次下楼梯视频，第 2 级与最后一级踩空占比合计 57%。</p>
+              <div class="foot"><span>步态 · 40 段视频</span><span>11-04</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="blk" id="latest" aria-labelledby="ltTitle">
+        <div class="blk-head">
+          <h2 id="ltTitle">最新更新</h2>
+          <span class="meta">11-04 至 11-07</span>
+        </div>
+        <ol class="timeline">
+          <li>
+            <div class="t-date">11-07</div>
+            <div class="t-title">8cm 与 10cm 细跟落地压力对照补入</div>
+            <p class="t-desc">同一位体验者、同一双鞋换 8cm 后跟，前掌峰值从 5.4 倍降到 4.6 倍体重。原始表格见深度解析的压力对照表。</p>
+          </li>
+          <li>
+            <div class="t-date">11-06</div>
+            <div class="t-title">步态练习室第 4 期开放报名</div>
+            <p class="t-desc">本期只收 12 人，练习内容为重心前移 2cm 时的踝关节稳定性，地点在城西木地板教室。</p>
+          </li>
+          <li>
+            <div class="t-date">11-05</div>
+            <div class="t-title">鞋底磨痕图鉴新增 5 张实拍</div>
+            <p class="t-desc">含前掌外侧、前掌内侧、后跟偏磨三类，标注拍摄者使用年限与日均步数。</p>
+          </li>
+          <li>
+            <div class="t-date">11-04</div>
+            <div class="t-title">下楼梯踩空视频完成第 40 段编码</div>
+            <p class="t-desc">编码维度为踩空级数、是否扶栏、鞋跟高度。第 2 级与末级合计 23 次。</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="blk" id="channels" aria-labelledby="chTitle">
+        <div class="blk-head">
+          <h2 id="chTitle">分类入口</h2>
+          <span class="meta">10 个细分频道</span>
+        </div>
+        <div class="tag-index">
+          <a class="tag-item" href="/#deep"><b>细跟落地压力</b><span>实测表 · 8 组</span></a>
+          <a class="tag-item" href="/#featured"><b>鞋底磨痕诊断</b><span>5 种典型磨痕</span></a>
+          <a class="tag-item" href="/#guide"><b>楼梯与坡道踩踏</b><span>步频与落脚点</span></a>
+          <a class="tag-item" href="/#deep"><b>高跟鞋踩地毯</b><span>回弹与晃动</span></a>
+          <a class="tag-item" href="/#latest"><b>猫跟通勤</b><span>5cm 以下</span></a>
+          <a class="tag-item" href="/#guide"><b>前掌垫与足弓支撑</b><span>配件对照</span></a>
+          <a class="tag-item" href="/#reviews"><b>踝关节稳定性</b><span>微调角度</span></a>
+          <a class="tag-item" href="/#faq"><b>后跟包覆与掉跟</b><span>尺码与楦型</span></a>
+          <a class="tag-item" href="/#rank"><b>不同地面防滑</b><span>瓷砖 / 木地板</span></a>
+          <a class="tag-item" href="/#deep"><b>膝盖受力与步态</b><span>落地缓冲</span></a>
+        </div>
+      </section>
+
+      <section class="blk" id="deep" aria-labelledby="dpTitle">
+        <div class="blk-head">
+          <h2 id="dpTitle">深度解析：鞋跟越细，踩得越稳吗</h2>
+          <span class="meta">全文唯一主体阅读区</span>
+        </div>
+        <div class="deep">
+          <p class="claim">核心判断：在硬质平整地面上，截面 10mm 以下的细跟落地反而比 22mm 粗跟更容易控制方向，因为接触点小、脚能更快感知偏移；一旦地面有软性回弹或颗粒，结论立刻反过来。</p>
+          <p>这个说法在 10 月 28 日的室内测试里站得住。测试用同一双可换跟结构的鞋，8cm 高度，细跟与粗跟各走 30 步，地面为抛光瓷砖，体验者穿同款薄棉袜，配速 4km/h。结果细跟组的横向偏移均值为 1.9cm，粗跟组 2.6cm。差别不大，但方向一致：接触面越小，踝周肌群越早收到反馈。</p>
+
+          <h3>一、换到地毯上，数据调了个头</h3>
+          <p>11 月 2 日在 12mm 羊毛毯重测，细跟横向偏移均值升到 3.4cm，粗跟为 2.7cm。地毯纤维在后跟落地后继续压缩，38 毫秒的接触时间被拉长到 70 毫秒以上，细跟的“快速反馈”变成“持续下沉”，脚要反复修正。粗跟因为接触面积大，压陷深度浅，反而稳。</p>
+          <table class="data-table">
+            <thead>
+              <tr><th>地面</th><th>细跟偏移</th><th>粗跟偏移</th><th>测试日</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>抛光瓷砖</td><td class="num">1.9cm</td><td class="num">2.6cm</td><td>10-28</td></tr>
+              <tr><td>12mm 羊毛毯</td><td class="num">3.4cm</td><td class="num">2.7cm</td><td>11-02</td></tr>
+              <tr><td>4mm 短毛毯</td><td class="num">2.5cm</td><td class="num">2.5cm</td><td>11-02</td></tr>
+            </tbody>
+          </table>
+
+          <h3>二、8cm 与 10cm 的差别没有想象中大</h3>
+          <p>11 月 7 日补测同一体验者换 8cm 后跟，前掌峰值从 5.4 倍降到 4.6 倍体重，下降约 15%。但横向偏移只从 1.9cm 降到 1.7cm。这说明高度主要影响前掌压力，对方向控制影响有限。真正决定晃不晃的是鞋跟截面与地面组合，不是那 2cm 的高度差。</p>
+          <p>需要留一句：以上是单人单鞋的小样本，30 步均值不足以推到人群。体验者体重 55kg、有五年穿跟习惯，初学者在第 10 步左右就出现明显代偿，偏移数据不可比。</p>
+
+          <h3>三、一个被说反的说法</h3>
+          <p>10 月 30 日某鞋履账号在视频里称“细跟踩下去受力面积小，所以压强更大、更伤膝盖”。前半句是事实，后半句是推测。压强确实大，但膝盖受力还取决于落地缓冲时间与步频。同一组测试里，细跟组步频 112 步/分，粗跟组 108 步/分，落地时间反而更长，膝反作用力峰值并未高出。把压强直接等同于膝伤，跳过了步态这一层。</p>
+          <p>可核对的结构拆解：① 压强＝力／面积，细跟确实高；② 膝反作用力峰值取决于缓冲时间与步频，本次测试未显著更高；③ 长期累积损伤没有随访数据，属于推测。三件事要分开看。</p>
+
+          <h3>四、楼梯是另一套规则</h3>
+          <p>下楼梯时，后跟先落在台阶边缘的风险最高。40 段视频里第 2 级踩空 11 次、最后一级 12 次，两者合计 57%。原因不复杂：第 2 级还带着下楼的初始动能，最后一级则因为视野里地面变近而提前放松。细跟在这两个位置的滑移概率高于粗跟，因为接触点落在台阶阴角时受力不均。</p>
+          <p class="fact-line">以上数据来自 2026-10-28 至 11-07 的室内与楼梯测试，原始表格、视频编码表与磨痕照片均在站内可查；单人小样本，不作医学建议。</p>
+        </div>
+      </section>
+
+      <section class="blk" id="guide" aria-labelledby="gdTitle">
+        <div class="blk-head">
+          <h2 id="gdTitle">体验指南：四周内把踩踏稳住</h2>
+          <span class="meta">练习室第 4 期配套</span>
+        </div>
+        <ol class="steps">
+          <li><b>第 1 周：裸脚找前掌落点</b><span>在地板上赤脚走 10 分钟，感受第二、三跖骨下方的承重，别急着上跟。</span></li>
+          <li><b>第 2 周：4cm 猫跟短距离</b><span>每天 800 步以内，地面选木地板，记录左右脚磨痕是否对称。</span></li>
+          <li><b>第 3 周：加入 6cm 粗跟通勤</b><span>把人行道、地铁站台两类地面分开记，注意后跟触地有没有“顿”一下。</span></li>
+          <li><b>第 4 周：8cm 细跟定点练习</b><span>只在瓷砖上走，每次 15 分钟，结束后看前掌外侧是否先白。</span></li>
+          <li><b>配件对照</b><span>前掌垫 3mm 与 6mm 各试一周，记录踝周酸胀出现的时间点。</span></li>
+          <li><b>收尾检查</b><span>两周内同一双鞋磨痕偏移超过 3mm，考虑换楦型而不是加垫。</span></li>
+        </ol>
+      </section>
+
+      <section class="blk" id="faq" aria-labelledby="fqTitle">
+        <div class="blk-head">
+          <h2 id="fqTitle">常见问答</h2>
+          <span class="meta">8 个高频问题</span>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>细跟踩瓷砖为什么会打滑</summary>
+            <p class="ans">细跟与瓷砖的接触面积只有约 78mm²，鞋跟底片一旦磨平或沾水，摩擦系数会从 0.6 掉到 0.3 以下。常见于刚拖过地的商场地面与雨天入口。</p>
+          </details>
+          <details>
+            <summary>高跟鞋踩地毯脚踝为什么会酸</summary>
+            <p class="ans">地毯纤维回弹让后跟接触时间从 38 毫秒延长到 70 毫秒以上，踝周肌群得持续微调。12mm 羊毛毯上酸胀出现时间比短毛毯早约 8 分钟。</p>
+          </details>
+          <details>
+            <summary>前掌垫能减少踩踏压力吗</summary>
+            <p class="ans">3mm 硅胶垫能把前掌峰值降低约 0.4 倍体重，但会改变鞋内空间，导致后跟包裹变松。6mm 垫效果更好，掉跟风险也更高。</p>
+          </details>
+          <details>
+            <summary>下楼梯应该整脚掌着地还是后跟先落</summary>
+            <p class="ans">台阶深度不足时后跟先落容易踩在边缘外。测试中第 2 级与末级踩空占比 57%，建议脚掌中部先接触台阶，再滚到前掌。</p>
+          </details>
+          <details>
+            <summary>猫跟和粗跟哪个更适合通勤</summary>
+            <p class="ans">5cm 以下猫跟适合木地板与短距离，粗跟适合人行道与长距离。两者前掌峰值差约 0.8 倍体重，落地稳定性差异在颗粒地面上更明显。</p>
+          </details>
+          <details>
+            <summary>鞋底外侧磨白需要换鞋吗</summary>
+            <p class="ans">先看磨痕偏移量。左右脚外侧磨白位置差在 3mm 以内属正常；超过 5mm 且伴随脚踝内倾，建议检查楦型或更换后跟底片。</p>
+          </details>
+          <details>
+            <summary>8cm 和 10cm 踩起来差别大吗</summary>
+            <p class="ans">前掌压力差约 15%，方向控制差别不大。真正影响体验的是鞋跟截面与地面材质，高度只排在第三位。</p>
+          </details>
+          <details>
+            <summary>雨天穿细跟怎么走</summary>
+            <p class="ans">避开抛光石材与金属井盖，改用前掌偏内侧着地，步幅缩短约 15%。鞋跟底片磨损到露出钉芯时，摩擦系数下降明显，应更换。</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="blk" id="reviews" aria-labelledby="rvTitle">
+        <div class="blk-head">
+          <h2 id="rvTitle">体验者评论</h2>
+          <span class="meta">6 条 · 含中性反馈</span>
+        </div>
+        <div class="reviews">
+          <div class="review">
+            <div class="who"><span class="avatar">林</span>林晓禾 <span class="stars">★★★★☆</span></div>
+            <p>按第 4 周的 8cm 细跟定点练了三天，瓷砖上确实比之前稳，但走到商场入口那块刚拖过的地砖还是滑了一下。</p>
+            <div class="item">指向：细跟瓷砖打滑</div>
+          </div>
+          <div class="review">
+            <div class="who"><span class="avatar">周</span>周予宁 <span class="stars">★★★☆☆</span></div>
+            <p>地毯那段跟我实际感受不太一样。我穿粗跟踩长毛毯反而更陷，脚跟像被吸住，不确定是不是毯子厚度不同。</p>
+            <div class="item">指向：12mm 羊毛毯测试</div>
+          </div>
+          <div class="review">
+            <div class="who"><span class="avatar">陈</span>陈默 <span class="stars">★★★★★</span></div>
+            <p>磨痕图鉴挺实用。我那双前掌外侧磨得厉害，对照后发现是楦型偏窄，换了半码后好多了。</p>
+            <div class="item">指向：鞋底磨痕诊断</div>
+          </div>
+          <div class="review">
+            <div class="who"><span class="avatar">许</span>许清和 <span class="stars">★★☆☆☆</span></div>
+            <p>下楼梯的数据只有 40 段视频，样本太少，我天天走的那段楼梯就没有第 2 级踩空的问题。结论别下太满。</p>
+            <div class="item">指向：楼梯踩空编码</div>
+          </div>
+          <div class="review">
+            <div class="who"><span class="avatar">何</span>何嘉 <span class="stars">★★★★☆</span></div>
+            <p>3mm 前掌垫确实减轻了前掌压痛，但后跟松了，走快了会掉。后来换成 6mm 加后跟贴，组合起来才合适。</p>
+            <div class="item">指向：前掌垫对照</div>
+          </div>
+          <div class="review">
+            <div class="who"><span class="avatar">吴</span>吴岚 <span class="stars">★★★☆☆</span></div>
+            <p>10cm 到 8cm 那 15% 的压力差，体感不明显，倒是步频变了以后膝盖舒服很多。深度解析里那句“高度排第三位”我信。</p>
+            <div class="item">指向：8cm 与 10cm 对照</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="blk" id="news" aria-labelledby="nwTitle">
+        <div class="blk-head">
+          <h2 id="nwTitle">相关资讯</h2>
+          <span class="meta">11-03 至 11-07</span>
+        </div>
+        <ul class="news-list">
+          <li>
+            <span class="d">11-07</span>
+            <div><b>压力感应垫完成 8 组标定</b><span>标定用 55kg 与 62kg 两个体重，误差控制在 4% 以内。</span></div>
+          </li>
+          <li>
+            <span class="d">11-06</span>
+            <div><b>步态练习室第 4 期名额剩余 3 个</b><span>课程含 20 分钟裸脚找前掌落点，需自备薄棉袜。</span></div>
+          </li>
+          <li>
+            <span class="d">11-05</span>
+            <div><b>某鞋履账号回应“细跟伤膝”说法</b><span>原视频下架，账号方称“表述不够严谨”，未提供新数据。</span> <em>属转述</em></div>
+          </li>
+          <li>
+            <span class="d">11-04</span>
+            <div><b>下楼梯视频编码表更新第 40 段</b><span>新增“是否扶栏”字段，扶栏者踩空次数为 3 次。</span></div>
+          </li>
+          <li>
+            <span class="d">11-03</span>
+            <div><b>鞋底磨痕实拍新增 5 张</b><span>其中 2 张来自日均 9000 步以上的通勤使用。</span></div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="blk" id="rank" aria-labelledby="rkTitle">
+        <div class="blk-head">
+          <h2 id="rkTitle">地面组合榜单：踩踏稳定性</h2>
+          <span class="meta">按偏移均值排序</span>
+        </div>
+        <ol class="rank-list">
+          <li><div><span class="r-t">细跟 + 抛光瓷砖</span><span class="r-s">10-28 测试 · 1.9cm 偏移</span></div><span class="r-v">A</span></li>
+          <li><div><span class="r-t">粗跟 + 12mm 羊毛毯</span><span class="r-s">11-02 测试 · 2.7cm 偏移</span></div><span class="r-v">B+</span></li>
+          <li><div><span class="r-t">细跟 + 4mm 短毛毯</span><span class="r-s">11-02 测试 · 2.5cm 偏移</span></div><span class="r-v">B</span></li>
+          <li><div><span class="r-t">粗跟 + 抛光瓷砖</span><span class="r-s">10-28 测试 · 2.6cm 偏移</span></div><span class="r-v">B-</span></li>
+          <li><div><span class="r-t">细跟 + 12mm 羊毛毯</span><span class="r-s">11-02 测试 · 3.4cm 偏移</span></div><span class="r-v">C</span></li>
+        </ol>
+      </section>
+
+      <section class="blk" id="rec" aria-labelledby="rcTitle">
+        <div class="blk-head">
+          <h2 id="rcTitle">相关推荐</h2>
+          <span class="meta">按浏览关联</span>
+        </div>
+        <div class="rec-tags">
+          <a href="/#deep">细跟落地压力实测表</a>
+          <a href="/#channels">前掌垫与足弓支撑</a>
+          <a href="/#guide">楼梯踩空的落脚点</a>
+          <a href="/#latest">猫跟通勤 5cm 以下</a>
+          <a href="/#reviews">踝关节稳定性微调</a>
+          <a href="/#faq">后跟包覆与掉跟</a>
+          <a href="/#news">细跟伤膝说法回应</a>
+          <a href="/#rank">不同地面防滑排序</a>
+        </div>
+      </section>
+
+    </div>
+
+    <aside class="side-col" aria-label="侧栏">
+      <div class="side-box">
+        <h3>栏目导航</h3>
+        <ul class="side-nav" id="sideNav">
+          <li><a href="/#overview">领域概览</a></li>
+          <li><a href="/#featured">精选推荐</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#channels">分类入口</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#faq">常见问答</a></li>
+          <li><a href="/#reviews">体验者评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#rank">地面榜单</a></li>
+          <li><a href="/#rec">相关推荐</a></li>
+        </ul>
+      </div>
+      <div class="side-box">
+        <h3>本周可核对数据</h3>
+        <ul class="side-list">
+          <li><span class="n">01</span>8 组落地压力标定，误差 ≤4%</li>
+          <li><span class="n">02</span>40 段楼梯视频，踩空 23 次</li>
+          <li><span class="n">03</span>5 种鞋底磨痕实拍入图鉴</li>
+          <li><span class="n">04</span>12 人练习室，剩余 3 个名额</li>
+        </ul>
+      </div>
+      <div class="side-box">
+        <h3>体验者原话</h3>
+        <div class="quote">“换了 6cm 粗跟以后，地铁站台那段砖路走起来踏实，但脚踝酸得更早，得练。”
+          <b>—— 练习室第 3 期 学员 何嘉</b>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="sitefoot">
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#7b2d3b"/>
+            <path d="M13 44h23l14-25" fill="none" stroke="#f3d9c8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="17" cy="48" r="4.2" fill="#f3d9c8"/>
+          </svg>
+          <span>高跟鞋踩</span>
+        </div>
+        <p>记录细跟、粗跟、猫跟在不同地面上的落地压力、接触时间与偏移量，附磨痕诊断和步态练习记录。</p>
+      </div>
+      <div class="foot-col">
+        <h4>实测与解析</h4>
+        <ul>
+          <li><a href="/#deep">细跟落地压力表</a></li>
+          <li><a href="/#overview">鞋跟截面承重对照</a></li>
+          <li><a href="/#rank">地面组合稳定性榜单</a></li>
+          <li><a href="/#news">细跟伤膝说法回应</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>练习与选购</h4>
+        <ul>
+          <li><a href="/#guide">四周踩踏稳定练习</a></li>
+          <li><a href="/#featured">鞋底磨痕诊断</a></li>
+          <li><a href="/#channels">前掌垫与足弓支撑</a></li>
+          <li><a href="/#faq">掉跟与楦型问题</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>互动</h4>
+        <ul>
+          <li><a href="/#reviews">体验者评论</a></li>
+          <li><a href="/#latest">步态练习室报名</a></li>
+          <li><a href="/#rec">相关推荐标签</a></li>
+          <li><a href="/#top">回到页首</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>数据与条目均为示例，测试记录截至 2026-11-07。</span>
+      <span>页脚更新时间 11-07，对应正文“8cm 与 10cm 压力对照”补入项。</span>
+      <span>© 2026 高跟鞋踩 内容示例保留。</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var menuBtn=document.getElementById('menuBtn');
+  var nav=document.getElementById('siteNav');
+  var toTop=document.getElementById('toTop');
+  var navLinks=Array.prototype.slice.call(nav.querySelectorAll('a'));
+  var sideLinks=Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+
+  menuBtn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A'&&window.innerWidth<=1000){
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+    }
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&nav.classList.contains('open')){
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+      menuBtn.focus();
+    }
+  });
+
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>420){toTop.classList.add('show');}
+    else{toTop.classList.remove('show');}
+    highlight();
+  },{passive:true});
+  toTop.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  var sections=sideLinks.map(function(a){
+    var id=a.getAttribute('href').replace('/#','');
+    return document.getElementById(id);
+  }).filter(Boolean);
+
+  function highlight(){
+    var pos=window.scrollY+140;
+    var cur=null;
+    sections.forEach(function(s){
+      if(s&&s.offsetTop<=pos){cur=s.id;}
+    });
+    sideLinks.forEach(function(a){
+      var id=a.getAttribute('href').replace('/#','');
+      if(id===cur){a.classList.add('active');}
+      else{a.classList.remove('active');}
+    });
+  }
+
+  // 本地搜索
+  var form=document.getElementById('searchForm');
+  var input=document.getElementById('q');
+  var out=document.getElementById('searchResult');
+  var index=[];
+  document.querySelectorAll('main h2, main h3, main .tag-item b, main .rec-tags a, main summary, main .news-list b, main .timeline .t-title, main .fcard h3').forEach(function(el){
+    var text=el.textContent.trim();
+    var box=el.closest('section');
+    var id=box?box.id:'';
+    index.push({t:text,id:id,el:el});
+  });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var q=input.value.trim().toLowerCase();
+    if(!q){out.textContent='';return;}
+    var hits=index.filter(function(it){return it.t.toLowerCase().indexOf(q)>-1;});
+    if(!hits.length){
+      out.textContent='没有找到与“'+input.value.trim()+'”相关的内容，试试“细跟”“地毯”“前掌垫”或“楼梯”。';
+      return;
+    }
+    var names=hits.slice(0,5).map(function(h){return h.t;});
+    out.textContent='找到 '+hits.length+' 条：'+names.join('；')+(hits.length>5?' 等。':'。');
+    var first=hits[0].el;
+    if(first){
+      var target=first.closest('section')||first;
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebSite",
+      "name":"高跟鞋踩",
+      "inLanguage":"zh-CN",
+      "description":"围绕高跟鞋踩踏的落地压力、接触时间与方向偏移，记录不同鞋跟截面与地面材质的对照数据。"
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"细跟踩瓷砖为什么会打滑","acceptedAnswer":{"@type":"Answer","text":"细跟与瓷砖接触面积约78mm²，底片磨平或沾水后摩擦系数会从0.6降到0.3以下，常见于刚拖过的地面与雨天入口。"}},
+        {"@type":"Question","name":"高跟鞋踩地毯脚踝为什么会酸","acceptedAnswer":{"@type":"Answer","text":"地毯纤维回弹使后跟接触时间从38毫秒延长到70毫秒以上，踝周肌群需持续微调，12mm羊毛毯上酸胀出现更早。"}},
+        {"@type":"Question","name":"前掌垫能减少踩踏压力吗","acceptedAnswer":{"@type":"Answer","text":"3mm硅胶垫可降低约0.4倍体重的前掌峰值，但会改变鞋内空间导致后跟包裹变松，6mm垫效果更好但掉跟风险更高。"}},
+        {"@type":"Question","name":"下楼梯应该整脚掌着地还是后跟先落","acceptedAnswer":{"@type":"Answer","text":"台阶深度不足时后跟先落易踩在边缘外。40段视频中第2级与末级踩空合计57%，建议脚掌中部先接触台阶再滚到前掌。"}},
+        {"@type":"Question","name":"猫跟和粗跟哪个更适合通勤","acceptedAnswer":{"@type":"Answer","text":"5cm以下猫跟适合木地板与短距离，粗跟适合人行道与长距离，两者前掌峰值差约0.8倍体重，颗粒地面差异更明显。"}},
+        {"@type":"Question","name":"鞋底外侧磨白需要换鞋吗","acceptedAnswer":{"@type":"Answer","text":"左右脚外侧磨白位置差在3mm以内属正常，超过5mm且伴随脚踝内倾，建议检查楦型或更换后跟底片。"}},
+        {"@type":"Question","name":"8cm和10cm踩起来差别大吗","acceptedAnswer":{"@type":"Answer","text":"前掌压力差约15%，方向控制差别不大，影响体验的主要是鞋跟截面与地面材质，高度排在第三位。"}},
+        {"@type":"Question","name":"雨天穿细跟怎么走","acceptedAnswer":{"@type":"Answer","text":"避开抛光石材与金属井盖，改用前掌偏内侧着地，步幅缩短约15%，鞋跟底片露出钉芯时应更换。"}}
+      ]
+    }
+  ]
+}
+</script>
+</body>
+  </html>
